@@ -1,0 +1,224 @@
+:root {
+  --grey: #bfbebd;
+  --beige: #dde6ed;
+  --blue: #9fcce0;
+  --green: #cfd9c7;
+  --pink: #f2d4d0;
+  --mauve: #b7a9b3;
+  --ink: #2c3e50;
+  --text: #4a4a4a;
+  --sidebar: 260px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  background: #fcfcfc;
+  color: var(--text);
+}
+
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: var(--sidebar);
+  flex: 0 0 var(--sidebar);
+  background: var(--beige);
+  border-right: 1px solid var(--beige);
+  padding: 0 0 24px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.brand {
+  background: #fff;
+  border-bottom: 1px solid var(--beige);
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--ink);
+  padding: 18px 20px;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+}
+
+.nav-btn {
+  appearance: none;
+  border: 0;
+  border-left: 3px solid transparent;
+  background: transparent;
+  color: #555;
+  text-align: left;
+  font: inherit;
+  font-weight: 400;
+  padding: 12px 18px;
+  cursor: pointer;
+}
+
+.nav-btn:hover,
+.nav-btn.active {
+  background: var(--blue);
+  border-left-color: var(--blue);
+  color: #111;
+  font-weight: 600;
+}
+
+main {
+  flex: 1;
+  padding: 24px;
+  min-width: 0;
+}
+
+.tab { display: none; }
+.tab.active { display: block; }
+
+.banner {
+  background: var(--blue);
+  color: #fff;
+  border-radius: 8px;
+  padding: 18px 22px 14px;
+  margin-bottom: 20px;
+}
+
+.banner h1,
+.card h2 {
+  margin: 0 0 8px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.banner h1 { color: #fff; font-size: 20px; }
+.banner p { margin: 0; }
+
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.kpi {
+  border-radius: 8px;
+  padding: 16px 18px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  min-height: 92px;
+}
+
+.kpi .value {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.kpi .label { font-size: 13px; margin-top: 6px; }
+
+.kpi.teal { background: var(--beige); color: #555; }
+.kpi.green { background: var(--green); color: #fff; }
+.kpi.mauve { background: var(--mauve); color: #fff; }
+.kpi.blue { background: var(--blue); color: #fff; }
+.kpi.pink { background: var(--pink); color: #5a3a3a; }
+
+.card {
+  background: #fff;
+  border-radius: 6px;
+  border-top: 3px solid var(--blue);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  padding: 18px 20px 20px;
+  margin-bottom: 25px;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.card h2 { font-size: 16px; color: #555; }
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.funnel-split { grid-template-columns: 1.4fr 1fr; }
+.efficiency-split { grid-template-columns: 1.6fr 1fr; }
+
+.plot { min-height: 350px; width: 100%; max-width: 100%; }
+.plot.tall { min-height: 460px; }
+
+.muted { color: #888; font-size: 12px; margin-top: 0; }
+.footer-note { color: #888; font-size: 12px; margin: 8px 0 0; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+th {
+  background: var(--beige);
+  color: #555;
+  font-weight: 600;
+  text-align: left;
+  padding: 8px 10px;
+}
+
+td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--beige);
+}
+
+.sim-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.sim-controls { background: var(--blue); color: #fff; border-top-color: #fff; }
+.sim-controls h2,
+.sim-controls .muted { color: #fff; }
+
+.slider {
+  margin-bottom: 14px;
+}
+
+.slider label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+input[type="range"] { width: 100%; accent-color: var(--mauve); }
+
+#run-scenario {
+  width: 100%;
+  margin-top: 8px;
+  background: #fff;
+  color: #4f7380;
+  border: 0;
+  border-radius: 6px;
+  font: inherit;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 12px;
+  cursor: pointer;
+}
+
+#run-scenario:hover { background: var(--beige); }
+
+@media (max-width: 900px) {
+  .app { flex-direction: column; }
+  .sidebar { width: 100%; height: auto; position: static; flex: none; }
+  nav { flex-direction: row; overflow-x: auto; }
+  .nav-btn { white-space: nowrap; }
+  .split, .sim-layout, .funnel-split, .efficiency-split { grid-template-columns: 1fr; }
+  main { padding: 16px; }
+}

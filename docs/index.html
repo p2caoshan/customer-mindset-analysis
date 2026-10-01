@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mindset Analytics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">Mindset Analytics</div>
+      <nav>
+        <button class="nav-btn active" data-tab="overview">Executive Summary</button>
+        <button class="nav-btn" data-tab="funnel">Marketing Funnel</button>
+        <button class="nav-btn" data-tab="effects">Direct vs. Indirect</button>
+        <button class="nav-btn" data-tab="efficiency">Channel Efficiency</button>
+        <button class="nav-btn" data-tab="simulator">Budget Simulator</button>
+      </nav>
+    </aside>
+    <main>
+      <section id="overview" class="tab active">
+        <div class="banner">
+          <h1>Marketing ROI &amp; Mindset Analysis</h1>
+          <p>This dashboard decomposes marketing performance into immediate sales impact (Direct) and long-term brand equity (Mindset/Indirect).</p>
+        </div>
+        <div class="kpi-row" id="overview-kpis"></div>
+        <article class="card">
+          <h2>Sales Performance Trend</h2>
+          <div id="sales-trend" class="plot"></div>
+        </article>
+        <div class="split">
+          <article class="card">
+            <h2>Key Predictors (KPI Summary)</h2>
+            <div id="kpi-table"></div>
+          </article>
+          <article class="card">
+            <h2>Mindset Criteria Scoring</h2>
+            <div id="criteria-table"></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="funnel" class="tab">
+        <div class="split funnel-split">
+          <article class="card">
+            <h2>Customer Conversion Funnel</h2>
+            <div id="funnel-plot" class="plot"></div>
+          </article>
+          <article class="card">
+            <h2>Conversion Efficiency</h2>
+            <p class="muted">How effectively each stage translates to sales.</p>
+            <div id="conversion-table"></div>
+          </article>
+        </div>
+        <article class="card">
+          <h2>Marketing Elasticity Matrix</h2>
+          <p class="muted">Responsiveness of metrics to channel spend.</p>
+          <div id="elasticity-plot" class="plot"></div>
+        </article>
+      </section>
+
+      <section id="effects" class="tab">
+        <article class="card">
+          <h2>Total Effect Decomposition</h2>
+          <div id="effects-plot" class="plot tall"></div>
+          <p class="footer-note">Direct = Immediate Sales. Indirect = Brand Building (Long-term).</p>
+        </article>
+        <article class="card">
+          <h2>Impact Summary Table</h2>
+          <div id="effects-table"></div>
+        </article>
+      </section>
+
+      <section id="efficiency" class="tab">
+        <div class="split efficiency-split">
+          <article class="card">
+            <h2>Channel Appeal Heatmap</h2>
+            <div id="appeal-heatmap" class="plot tall"></div>
+          </article>
+          <article class="card">
+            <h2>Aggregate Channel Score</h2>
+            <div id="appeal-bar" class="plot tall"></div>
+          </article>
+        </div>
+        <article class="card">
+          <h2>Detailed Efficiency Metrics</h2>
+          <div id="appeal-table"></div>
+        </article>
+        <article class="card">
+          <h2>Lag Effects</h2>
+          <div id="lag-plot" class="plot tall"></div>
+        </article>
+      </section>
+
+      <section id="simulator" class="tab">
+        <div class="sim-layout">
+          <article class="card sim-controls">
+            <h2>Scenario Controls</h2>
+            <p class="muted">Modify channel budgets to forecast impact.</p>
+            <div id="sliders"></div>
+            <button id="run-scenario" type="button">Run simulation</button>
+          </article>
+          <div class="sim-results">
+            <div class="kpi-row" id="scenario-kpis"></div>
+            <article class="card">
+              <h2>Forecasted Sales Decomposition</h2>
+              <div id="scenario-plot" class="plot"></div>
+            </article>
+            <article class="card">
+              <h2>Scenario Data Table</h2>
+              <div id="scenario-table"></div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="results.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

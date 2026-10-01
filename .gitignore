@@ -1,0 +1,23 @@
+__pycache__/
+*.py[cod]
+.Python
+.venv/
+venv/
+.Rhistory
+.RData
+.Rproj.user/
+__MACOSX/
+.DS_Store
+Thumbs.db
+
+# Local media and written reports
+*.mp4
+*.pdf
+/*.html
+
+# Original R notebook, Shiny app, and intermediate results
+*.Rmd
+app.R
+analysis_results.RData
+*.Rproj
+ReadMe.txt
